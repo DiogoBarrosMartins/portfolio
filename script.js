@@ -1,4 +1,4 @@
-function toggleMenu(){
+function toggleMenu() {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
     menu.classList.toggle("open");
@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectItems = document.querySelectorAll('.project-item');
 
     const adjustProjectItemWidths = () => {
+        const containerWidth = projectsContainer.offsetWidth;
         const numberOfProjects = projectItems.length;
+        const itemWidth = containerWidth / numberOfProjects - 20; // Adjust the 20 for margin/padding if necessary
         projectItems.forEach(item => {
-            item.style.flex = `1 1 calc(100% / ${numberOfProjects} - 1rem)`;
-            item.style.maxWidth = `calc(100% / ${numberOfProjects} - 1rem)`;
+            item.style.flex = `0 0 ${itemWidth}px`;
+            item.style.maxWidth = `${itemWidth}px`;
         });
     };
 
